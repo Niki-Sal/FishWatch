@@ -20,6 +20,7 @@ router.get('/favorites',(req,res)=>{
   })
 })
 router.get('/:name', (req,res)=>{
+  
   let fishName = req.params.name.replace(' ','-')
   console.log(fishName)
   axios.get(`https://www.fishwatch.gov/api/species/${fishName}`)
@@ -43,7 +44,7 @@ router.get('/:name', (req,res)=>{
   })
 })
 
-//////////////newNutrition
+
 
 router.post('/favorite/:name', (req, res)=>{
   const userInput = req.params.name
@@ -53,6 +54,8 @@ router.post('/favorite/:name', (req, res)=>{
   })
   res.redirect('/fishes')
 })
+
+
 
 
 module.exports = router

@@ -18,10 +18,12 @@ app.use(express.static(__dirname + '/public/'));
 
 
 app.get('/', (req, res) => {
-    res.send('Welcome to my App')
+    res.render('index')
 });
 
 app.use('/fishes', controllers.fishes)
+app.use('/nutrition', controllers.nutrition)
+app.use('/region', controllers.region)
 
 
 const PORT = process.env.PORT || 8000;
