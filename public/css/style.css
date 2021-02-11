@@ -1,4 +1,12 @@
-.wellon{
-    color:red;
-
+#fish-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#fish-name{
+    font-size: 25px;
+}
+#nameid{
+    display:inline;
 }

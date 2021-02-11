@@ -5,8 +5,8 @@
     </p>
     <div class="well" >
         <% for (let i=0; i < fishes.length; i++){ %>
-        <div id = "poke-container">
-            <p id = "poke-name"> <%= fishes[i].name %></p>
+        <div id = "fish-container" style="display: flex; flex-direction: row; justify-content:space-between; padding: 10px">
+            <p > <%= fishes[i].name %></p>
             <form method="GET" action="/fishes/<%= fishes[i].name %>">
                 <button id = "More-info" class="btn btn-primary" type="submit">More info</button>
             </form>

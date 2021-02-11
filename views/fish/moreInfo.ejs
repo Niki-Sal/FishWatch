@@ -1,0 +1,26 @@
+<div class="container">
+    <h1 class="text-center"><%= chosenFish.name.toUpperCase() %></h1>
+    <p class="text-center">
+        <a href="/fishes">Home</a>
+    </p>
+    <p class="text-center">
+        <a href="/fishes/favorites">Favorites</a>
+    </p>
+    <div class="well" >
+        <div id="primary-properties" style="display: flex; flex-direction: row; justify-content:space-between; padding: 10px">
+            <div style="font-size: 20px">
+                <p id = "poke-name">Name: <%= chosenFish.name %></p>
+                <p id = "poke-name">Harvest: <%= chosenFish.harvest %></p>
+            </div>
+            
+            <img style="max-width: 50%; height:auto" src="<%= chosenFish.image %>" alt="Fish image">
+            
+        </div>
+    </div>
+</div>
+<p class="text-center">
+    <a href="fishes/newNutrition">Add Nutrition</a>
+</p>
+<p class="text-center">
+    <a href="fishes/newRegion">Add Region</a>
+</p>

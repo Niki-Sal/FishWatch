@@ -12,12 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.nutrition.belongsTo(models.fish)
-      
     }
   };
   nutrition.init({
     name: DataTypes.STRING,
-    amount: DataTypes.STRING
+    amount: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'nutrition',

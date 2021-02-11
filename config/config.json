@@ -1,16 +1,16 @@
 {
   "development": {
-    "database": "fishapp",
+    "database": "appfish",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "database": "fishapp",
+    "database": "appfish",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "database": "fishapp",
+    "database": "appfish",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }

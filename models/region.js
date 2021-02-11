@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.region.belongsToMany(models.fish, {through: "fishsRegions"})
+      models.region.belongsToMany(models.fish, {through: "fishesRegions"})
     }
   };
   region.init({

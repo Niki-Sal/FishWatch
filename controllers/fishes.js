@@ -10,13 +10,13 @@ router.get('/', (req, res) => {
     axios.get(fishUrl).then(function(apiResponse){
         let fish = apiResponse.data;
         // console.log(fish)
-        res.render('allFishes', {fish :fish}); 
+        res.render('fish/allFishes', {fish :fish}); 
     })
 })
 
 router.get('/favorites',(req,res)=>{
   db.fish.findAll().then((fishes)=>{
-    res.render('favorite', {fishes})
+    res.render('fish/favorite', {fishes})
   })
 })
 router.get('/:name', (req,res)=>{
@@ -39,9 +39,11 @@ router.get('/:name', (req,res)=>{
       image
     }
     console.log(chosenFish)
-    res.render('moreInfo',{chosenFish})
+    res.render('fish/moreInfo',{chosenFish})
   })
 })
+
+//////////////newNutrition
 
 router.post('/favorite/:name', (req, res)=>{
   const userInput = req.params.name
@@ -51,22 +53,6 @@ router.post('/favorite/:name', (req, res)=>{
   })
   res.redirect('/fishes')
 })
-
-// router.get('/:param', (req, res)=> {
-//   db.user.findOne({ 
-//     where: {
-//       name: req.params['Species Name']
-//     },
-//     include: [db.pet]
-//   })
-//   .then( user=> {
-//     // we will get back a pets property
-//     console.log(user.pets)
-//     res.render('userShow', { user })
-//   })
-//   // we will show all the animals
-//   // we will a have a form to make a new animal
-// })
 
 
 module.exports = router
