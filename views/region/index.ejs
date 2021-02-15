@@ -1,0 +1,11 @@
+
+<h2>Regions</h2>
+
+
+<% regions.forEach(function(region) { %>
+  <div class="well">
+    <h2>
+      <a href="/regions/<%= region.name %>"><%= region.name %></a>
+    </h2>
+  </div>
+<% }); %>

@@ -1,6 +1,6 @@
 
 <div class="container">
-    <h1 class="text-center"><%= chosenFish.name.toUpperCase() %></h1>
+    <h1 class="text-center"><%= fish.name %></h1>
     <p class="text-center">
         <a href="/fishes">Home</a>
     </p>
@@ -11,20 +11,40 @@
     <div class="well" >
         <div id="primary-properties" style="display: flex; flex-direction: row; justify-content:space-between; padding: 10px">
             <div style="font-size: 20px">
-                <p id = "poke-name">Name: <%= chosenFish.name %></p>
-                <p id = "poke-name">Harvest: <%= chosenFish.harvest %></p>
+                <p id = "poke-name">Name: <%= fish.name %></p>
+                <p id = "poke-name">Harvest: <%= fish.harvest %></p>
             </div>
             
-            <img style="max-width: 50%; height:auto" src="<%= chosenFish.image %>" alt="Fish image">
+            <img style="max-width: 50%; height:auto" src="<%= fish.img %>" alt="Fish image">
+            
+
+        </div>
+        <div>
+            <h3>Nutrition</h3>
+            <% for (let i=0; i < fish.nutrition.length; i++) { %>
+            <p><%= fish.nutrition[i].name %> : <%= fish.nutrition[i].amount %></p>
+            <br />
+            <% } %>
+            <a href= "/regions">Region</a>
+            <% for (let i=0; i < fish.regions.length; i++) { %>
+            <p><%= fish.regions[i].name %></p>
+            <br />
+            <% } %>
             
         </div>
     </div>
-    <p class="text-center">
-        <a href="/nutrition/<%= chosenFish.name %>">add Creature Nutritions</a>
-    </p>
-    <p class="text-center">
-        <a href="/region/<%= chosenFish.name %>">add Creature Region</a>
-    </p>
 </div>
+<form action="/fishes/favorite/<%= fish.name %>" Method="POST">
+    <div class="mb-3">
+        <label for="region" class="form-label">Region</label>
+        <input type="text" class="form-control" id="region" name='region'>
+      </div>
+      <div class="mb-3">
+          <label for="nutrition" class="form-s">Nutrition</label>
+          <input type="text" class="form-control" id="nutrition" name='nutrition'>
+          <label for="nutrition" class="form-s">Amount</label>
+          <input type="text" class="form-control" id="nutrition" name='amount'>
+      <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
 

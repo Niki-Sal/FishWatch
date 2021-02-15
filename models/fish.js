@@ -12,11 +12,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.fish.hasMany(models.nutrition)
-      models.fish.belongsToMany(models.region, {through: "fishesRegions"})
+      models.fish.belongsToMany(models.region, {through:"fishsRegions"})
     }
   };
   fish.init({
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    harvest: DataTypes.STRING,
+    img: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'fish',

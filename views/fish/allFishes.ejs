@@ -9,8 +9,7 @@
         
           <img style = "max-width: 200px; height: auto" src="<%= fish[i]['Species Illustration Photo']['src'] %>" alt="fish image">
         
-          <form method="POST" action="fishes/favorite/<%= fish[i]['Species Name'] %>">
-            <input hidden type="text" name="<%= fish[i]['Species Name'] %>" value="<%= fish[i]['Species Name'] %>">
+          <form method="POST" action="fishes/favorite/<%= fish[i]['Species Name'] %>/<%= fish[i]['Harvest Type'] %>">
             <button class="btn btn-primary" type="submit">Add to Favorite</button>
           </form>
       

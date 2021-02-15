@@ -1,0 +1,8 @@
+<h3>Region <%= region.name %></h3>
+<h3>Fishes  available in this region are:</h3>
+<% for (let i=0; i<region.fishes.length; i++) { %>
+<p><a href='/fishes/<%=region.fishes[i].name %>' ><%= region.fishes[i].name %></a></p>
+<br />
+<% } %>
+
+<a href="/fishes">&larr; Back Home</a>

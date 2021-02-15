@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   nutrition.init({
     name: DataTypes.STRING,
-    amount: DataTypes.INTEGER
+    amount: DataTypes.INTEGER,
+    fishId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'nutrition',

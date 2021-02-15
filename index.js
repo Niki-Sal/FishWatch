@@ -22,8 +22,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/fishes', controllers.fishes)
-app.use('/nutrition', controllers.nutrition)
-app.use('/region', controllers.region)
+app.use('/regions', controllers.regions)
 
 
 const PORT = process.env.PORT || 8000;
