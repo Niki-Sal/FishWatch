@@ -23,6 +23,10 @@
             <h3>Nutrition</h3>
             <% for (let i=0; i < fish.nutrition.length; i++) { %>
             <p><%= fish.nutrition[i].name %> : <%= fish.nutrition[i].amount %></p>
+            <a href='/editNutrition/<%= fish.id %>/<%=fish.nutrition[i].name %>'>EDIT</a>
+            <form method="POST" action="/fishes/favorite/<%= fish.id %>/<%= fish.nutrition[i].name %>?_method=DELETE">
+                <input type="submit" value= "Delete">
+            </form>
             <br />
             <% } %>
             <a href= "/regions">Region</a>

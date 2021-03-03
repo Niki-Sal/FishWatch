@@ -2,6 +2,11 @@ const express = require('express')
 const axios = require('axios');
 const router = express.Router()
 const db = require('../models');
+const methodOverride = require("method-override")
+const layouts = require('express-ejs-layouts');
+router.use(methodOverride("_method"))
+router.use(express.urlencoded({ extended: false }));
+router.use(layouts);
 
 
 ///GET all fishes from API
@@ -114,9 +119,58 @@ router.post('/favorite/:name', async(req, res)=>{
       console.log(error)
     }
 })
+// //GET a page for editing nutrition
+// router.get('/editNutrition/:fishId/:nutrition', async(req, res)=>{
+//   try{
+//     let nutrition = req.params.name
+//     let fishId = req.params.fishId
+//     const theFish = await db.fish.findOne({
+//       where:{id: fishId},
+//     })
+//     const theNutrition = await db.nutrition.findOne({
+//       where:{fishId: fishId, name: nutrition},
+//     })
 
+//     res.render('fish/edit',{theFish, theNutrition})
+//   }catch (err){
+//     console.log(err)
+//   }
+// })
+// // //EDIT nutrition
+// router.put ('/favorite/editNutrition/:fishId/:nutrition', async(req, res)=>{
+//   try{
+//     let name = req.body.name
+//     let amount = req.body.amount
+//     let fishId = req.params.fishId
+//     const theFish = await db.fish.findOne({
+//       where:{id: fishId},
+//     })
+//     const updatedNutrition = await db.nutrition.update(
+//       {name: name, amount:amount},
+//       {returning: true, where: {fishId: fishId}}
+//     )
+//     res.redirect(`/fishes/favorite/${theFish.name}`)
+//   }catch (err){
+//     console.log(err)
+//   }
+// })
 
-
+//DELETE added nutrition 
+router.delete('/favorite/:fishId/:nutrition', async(req, res)=>{
+  try{
+    let nutrition = req.params.nutrition
+    let fishId = req.params.fishId
+    const theFish = await db.fish.findOne({
+      where:{id: fishId}
+    })
+    const theNutrition = await db.nutrition.destroy({
+      where:{fishId: fishId, name: nutrition}
+    }) 
+    res.redirect(`/fishes/favorite/${theFish.name}`)
+  }catch(err){
+    console.log(err)
+  }
+})
 
 
 module.exports = router
